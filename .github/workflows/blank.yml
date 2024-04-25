@@ -1,4 +1,11 @@
+startGECKOproject()
+obj.params.enzyme_comp = '';
+adapterLocation = fullfile('D:\xyModelGEM\xyModelGEMAdapter.m');
+ModelAdapterManager.setDefault(adapterLocation);
 
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+model = importModel('D:\xyModelGEM\models\iMS508_2.xml');
+[ecModel, noUniprot] = makeEcModel(model);
+
+saveEcModel(ecModel, 'ecModel.yml');
+saveEcModel(ecModel, 'stage2ecModel.yml')
+
